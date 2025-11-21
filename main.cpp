@@ -52,7 +52,7 @@ class Player {
         return trueDamage;
     }
 
-    int performAttack (int damageTaken ){
+    int performAttack (){
 
         int baseDamage = attackMechanic();        // get base damage
         int finalDamage = critAttack(baseDamage); // apply crit if any
@@ -85,7 +85,7 @@ int main() {
     player1.critMultiplier =150;
 
     cout << "Player health: " << player1.health << endl;
-    player1.performAttack(int damageTaken); 
+    player1.performAttack(); 
     
     
 
