@@ -54,7 +54,7 @@ class Player {
 
     int performAttack ( ){
 
-        int baseDamage = attackMechanic();        // get base damage
+        int baseDamage = attackMechanic(int damageTaken);        // get base damage
         int finalDamage = critAttack(baseDamage); // apply crit if any
 
         cout << "Player hit for " << damageTaken << "!" << endl;
