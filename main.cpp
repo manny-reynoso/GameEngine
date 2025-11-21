@@ -87,7 +87,7 @@ int main() {
     player1.critMultiplier =150;
 
     cout << "Player health: " << player1.health << endl;
-    player1.performAttack(); 
+    player1.performAttack( damageTaken); 
     
     
 
