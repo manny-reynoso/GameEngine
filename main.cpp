@@ -20,6 +20,8 @@ class Player {
         int damageTaken = static_cast<int>(finalDamage*((armour / 100.0)-100.0));
         cout << "Player has an armour rating of "  << armour << endl;
         cout << "Player got hit for " << damageTaken << endl;
+
+        return damageTaken;
     }
 
     int attackMechanic() {
@@ -52,7 +54,7 @@ class Player {
         return trueDamage;
     }
 
-    int performAttack (){
+    int performAttack (int damageTaken){
 
         int baseDamage = attackMechanic();        // get base damage
         int finalDamage = critAttack(baseDamage); // apply crit if any
