@@ -52,12 +52,12 @@ class Player {
         return trueDamage;
     }
 
-    int performAttack (){
+    int performAttack ( ){
 
         int baseDamage = attackMechanic();        // get base damage
         int finalDamage = critAttack(baseDamage); // apply crit if any
 
-        cout << "Player hit for " <<  << "!" << endl;
+        cout << "Player hit for " << damageTaken << "!" << endl;
         return finalDamage;
     };
 
@@ -92,5 +92,5 @@ int main() {
     return 0;
 }
 
-//TEST
+
 
