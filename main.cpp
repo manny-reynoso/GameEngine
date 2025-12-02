@@ -20,7 +20,7 @@ class Player {
         
         int damageTaken = static_cast<int>(finalDamage*((armour / 100.0)-100.0));
         cout << name << " has an armour rating of "  << armour << endl;
-        cout << "Player got hit for " << damageTaken << endl;
+        cout << name <<" got hit for " << damageTaken << endl;
 
         return damageTaken;
     }
