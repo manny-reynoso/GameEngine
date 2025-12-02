@@ -147,7 +147,6 @@ int main() {
             cout << "\nInvalid choice. You lose your turn!\n";
         };
 
-        player1.performAttack(cpu);
         if (cpu.health <= 0) break;
 
         cpu.performAttack(player1);
