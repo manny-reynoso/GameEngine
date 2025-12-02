@@ -55,10 +55,21 @@ class Player {
         return trueDamage;
     }
 
-    int performAttack (){
+        int takeDamage(damageTaken){
+
+            health -= damageTaken ; //Substract the damage from targets health
+
+            //output the result!
+            cout <<this->name << "took" << damageTaken << " damage!" << endl;
+
+        };
+
+    int performAttack (Player& cpu){
 
         int baseDamage = attackMechanic();        // get base damage
         int finalDamage = critAttack(baseDamage); // apply crit if any
+        int damageDealt = takeDamage(damageTaken);
+
 
         cout << name << " hit for " << finalDamage<< "!" << endl;
         return finalDamage;
@@ -89,8 +100,9 @@ int main() {
     cpu.critChance = 15;
     player1.critMultiplier =150;
 
-    cout << player1.name << "health: " << player1.health << endl;
+    cout << player1.name << " health: " << player1.health << endl;
     player1.performAttack(); 
+    
     
     
 
