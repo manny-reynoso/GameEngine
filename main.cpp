@@ -108,7 +108,7 @@ int main() {
 
     cout << player1.name << " health: " << player1.health << endl;
 
-    while (player || cpu health != 0){
+    while (player1.health > 0 && cpu.health > 0){
     player1.performAttack(cpu); 
     cpu.performAttack(player1);
     
