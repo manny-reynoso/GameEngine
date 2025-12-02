@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime> // for time()
+#include <string> 
 #include <cstdlib> // for rand() and srand()
 using namespace std;
 
@@ -13,17 +14,6 @@ class Player {
         int critChance;
         int critMultiplier;
         string name;
-
-
-    int armourMechanic(int armour) {
-        
-        
-        int damageTaken = static_cast<int>(finalDamage*((armour / 100.0)-100.0));
-        cout << name << " has an armour rating of "  << armour << endl;
-        cout << name << " got hit for " << damageTaken << endl;
-
-        return damageTaken;
-    }
 
     int attackMechanic() {
         int attackRoll = (rand() % 20) + 1; // random number between 1 and 20
@@ -55,12 +45,26 @@ class Player {
         return trueDamage;
     }
 
-        void takeDamage(int ){
+        int armourMechanic(int incomingDamage) {
+        
+        
+        int damageTaken = static_cast<int>(incmoningDamage*((armour / 100.0)-100.0));
+        cout << name << " has an armour rating of "  << armour << endl;
+        cout << name << " got hit for " << damageTaken << endl;
 
-            health -= armourMechanic(armour, finalDamage) ; //Substract the damage from targets health
+        return damageTaken;
+    }
 
+        void takeDamage(int incomingDamage){
+
+            int damageTaken = armourMechanic(incomingDamage);
+            health -= damageTaken ; //Substract the damage from targets health
+
+            if(health < 0){
+                health = 0;
+            }
             //output the result!
-            cout <<this->name << "took" << damageTaken << " damage!" << endl;
+            cout << name << " now has " << health << " health!" << endl;
 
         };
 
