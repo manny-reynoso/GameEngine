@@ -32,8 +32,8 @@ class Player {
         int trueDamage = minDamage + static_cast<int>(
             ((attackRoll - 1) / 19.0) * (maxDamage - minDamage)
         );
-        cout << "Player rolled " << attackRoll << "!!" << endl;
-        cout << "Player base damage for " << trueDamage << "!!" << endl;
+        cout << name << " rolled " << attackRoll << "!!" << endl;
+        cout << name <<" base damage for " << trueDamage << "!!" << endl;
 
         return trueDamage;
 
