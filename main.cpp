@@ -104,13 +104,15 @@ int main() {
     cpu.maxDamage = 10;
     cpu.armour = 8;
     cpu.critChance = 15;
-    player1.critMultiplier =150;
+    cpu.critMultiplier =150;
 
     cout << player1.name << " health: " << player1.health << endl;
+
+    while (player || cpu health != 0){
     player1.performAttack(cpu); 
+    cpu.performAttack(player1);
     
-    
-    
+    }
 
     return 0;
 }
