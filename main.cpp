@@ -101,7 +101,7 @@ int main() {
     player1.critMultiplier =150;
 
     cout << player1.name << " health: " << player1.health << endl;
-    player1.performAttack(); 
+    player1.performAttack(Player& cpu); 
     
     
     
