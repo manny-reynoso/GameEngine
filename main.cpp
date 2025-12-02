@@ -81,6 +81,7 @@ int main() {
     player1.critMultiplier =150;
 
     Player cpu;
+    cpu.name = cpu ;
     cpu.health = 100;
     cpu.minDamage = 1;
     cpu.maxDamage = 10;
