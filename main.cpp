@@ -112,6 +112,41 @@ int main() {
     
 
     while (player1.health > 0 && cpu.health > 0) {
+        cout <<"\n=============Round" << round << "=================\n" ;
+         cout << player1.name << " HP: " << player1.health
+             << " | CPU HP: " << cpu.health << "\n";
+
+        // ------------------------
+        //  PLAYER TURN
+        // ------------------------
+        cout << "\nChoose an action:\n";
+        cout << "1. Attack\n";
+        cout << "2. Block\n";
+        cout << "3. Heal\n";
+        cout << "Enter choice: ";
+
+        int choice ;
+        cin >> choice;
+
+        if (choice ==1){
+            cout << "\nYou chose ATTACK!\n";
+            player1.performAttack(cpu);
+        }
+
+        else if (choice ==2){
+            cout << "\nYou chose BLOCK! But it is not in game...\n";
+            //player1.isBlocking = true;   // Blocks the next hit
+        }
+
+        else if (choice == 3){
+            cout << "\nYou chose HEAL! But it is not in game...\n";
+            //player1.heal();
+        }
+
+        else {
+            cout << "\nInvalid choice. You lose your turn!\n";
+        };
+
         player1.performAttack(cpu);
         if (cpu.health <= 0) break;
 
