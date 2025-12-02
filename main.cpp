@@ -15,7 +15,7 @@ class Player {
         string name;
 
 
-    int armourMechanic(int armour, int damageTaken) {
+    int armourMechanic(int armour) {
         
         
         int damageTaken = static_cast<int>(finalDamage*((armour / 100.0)-100.0));
