@@ -20,7 +20,7 @@ class Player {
         
         int damageTaken = static_cast<int>(finalDamage*((armour / 100.0)-100.0));
         cout << name << " has an armour rating of "  << armour << endl;
-        cout << name <<" got hit for " << damageTaken << endl;
+        cout << name << " got hit for " << damageTaken << endl;
 
         return damageTaken;
     }
@@ -72,6 +72,7 @@ int main() {
     srand(time(NULL)); // Seed the random number generator once
 
     Player player1;
+    player1.name = Player2;
     player1.health = 100;
     player1.minDamage = 1;
     player1.maxDamage = 10;
