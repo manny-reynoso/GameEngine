@@ -15,7 +15,7 @@ class Player {
         string name;
 
 
-    int armourMechanic(int armour, int finalDamage) {
+    int armourMechanic(int armour, int damageTaken) {
         
         
         int damageTaken = static_cast<int>(finalDamage*((armour / 100.0)-100.0));
@@ -55,9 +55,9 @@ class Player {
         return trueDamage;
     }
 
-        int takeDamage(int damageTaken){
+        void takeDamage(int ){
 
-            health -= damageTaken ; //Substract the damage from targets health
+            health -= armourMechanic(armour, finalDamage) ; //Substract the damage from targets health
 
             //output the result!
             cout <<this->name << "took" << damageTaken << " damage!" << endl;
@@ -68,7 +68,7 @@ class Player {
 
         int baseDamage = attackMechanic();        // get base damage
         int finalDamage = critAttack(baseDamage); // apply crit if any
-        int damageDealt = takeDamage(damageTaken);
+        int damageDealt = 
 
 
         cout << name << " hit for " << finalDamage<< "!" << endl;
