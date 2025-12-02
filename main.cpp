@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime> // for time()
+#include <string> 
 #include <cstdlib> // for rand() and srand()
 using namespace std;
 
@@ -12,15 +13,7 @@ class Player {
         int armour;
         int critChance;
         int critMultiplier;
-
-
-    int armourMechanic(int armour, int finalDamage) {
-        
-        
-        int damageTaken = static_cast<int>(finalDamage*((armour / 100.0)-100.0));
-        cout << "Player has an armour rating of "  << armour << endl;
-        cout << "Player got hit for " << damageTaken << endl;
-    }
+        string name;
 
     int attackMechanic() {
         int attackRoll = (rand() % 20) + 1; // random number between 1 and 20
@@ -29,8 +22,8 @@ class Player {
         int trueDamage = minDamage + static_cast<int>(
             ((attackRoll - 1) / 19.0) * (maxDamage - minDamage)
         );
-        cout << "Player rolled " << attackRoll << "!!" << endl;
-        cout << "Player base damage for " << trueDamage << "!!" << endl;
+        cout << name << " rolled " << attackRoll << "!!" << endl;
+        cout << name <<" base damage for " << trueDamage << "!!" << endl;
 
         return trueDamage;
 
@@ -52,16 +45,43 @@ class Player {
         return trueDamage;
     }
 
-    int performAttack (){
+    int armourMechanic(int incomingDamage) {
+        
+        double reduction = armour / 100.0; // 8 → 0.08 = 8% reduction
+        int damageTaken = static_cast<int>(incomingDamage * (1.0 - reduction));
 
-        int baseDamage = attackMechanic();        // get base damage
-        int finalDamage = critAttack(baseDamage); // apply crit if any
+        cout << name << " has an armour rating of "  << armour << endl;
+        cout << name << " got hit for " << damageTaken << endl;
 
-        cout << "Player hit for " << finalDamage << "!" << endl;
-        return finalDamage;
-    };
+        return damageTaken;
+    }
 
-    void receiveDamage(int finalDamage){};
+        void takeDamage(int incomingDamage){
+
+            int damageTaken = armourMechanic(incomingDamage);
+            health -= damageTaken ; //Substract the damage from targets health
+
+            if(health < 0){
+                health = 0;
+            }
+            //output the result!
+
+            cout << name << " took " << damageTaken << " and now has " << health << " health!" << endl;
+
+
+        };  
+
+    int performAttack(Player& target) {
+        int baseDamage = attackMechanic();
+        int finalDamage = critAttack(baseDamage);
+
+        std::cout << name << " hits " << target.name
+                << " for " << finalDamage << " before armour!" << std::endl;
+
+        target.takeDamage(finalDamage); // actually change target HP
+
+    return finalDamage;
+}
 
 };
 
@@ -69,6 +89,7 @@ int main() {
     srand(time(NULL)); // Seed the random number generator once
 
     Player player1;
+    player1.name = "Player1";
     player1.health = 100;
     player1.minDamage = 1;
     player1.maxDamage = 10;
@@ -77,17 +98,21 @@ int main() {
     player1.critMultiplier =150;
 
     Player cpu;
+    cpu.name = "cpu" ;
     cpu.health = 100;
     cpu.minDamage = 1;
     cpu.maxDamage = 10;
     cpu.armour = 8;
     cpu.critChance = 15;
-    player1.critMultiplier =150;
+    cpu.critMultiplier =150;
 
-    cout << "Player health: " << player1.health << endl;
-    player1.performAttack(); 
+    cout << player1.name << " health: " << player1.health << endl;
+
+    while (player1.health > 0 && cpu.health > 0){
+    player1.performAttack(cpu); 
+    cpu.performAttack(player1);
     
-    
+    }
 
     return 0;
 }
