@@ -72,7 +72,7 @@ int main() {
     srand(time(NULL)); // Seed the random number generator once
 
     Player player1;
-    player1.name = Player2;
+    player1.name = "Player1";
     player1.health = 100;
     player1.minDamage = 1;
     player1.maxDamage = 10;
