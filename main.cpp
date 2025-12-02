@@ -2,7 +2,19 @@
 #include <ctime> // for time()
 #include <string> 
 #include <cstdlib> // for rand() and srand()
+#include <chrono>
+#include <thread>
 using namespace std;
+
+
+void typewrite(const std::string& text, int delayMs) {
+    for (char c : text) {
+        std::cout << c << std::flush; // force this character to appear
+        std::this_thread::sleep_for(std::chrono::milliseconds(delayMs));
+    }
+}
+
+
 
 // Classes
 class Player {
@@ -22,7 +34,7 @@ class Player {
         int trueDamage = minDamage + static_cast<int>(
             ((attackRoll - 1) / 19.0) * (maxDamage - minDamage)
         );
-        cout << name << " rolled " << attackRoll << "!!" << endl;
+        cout << name << " \n\nrolled " << attackRoll << "!!" << endl;
         cout << name <<" base damage for " << trueDamage << "!!" << endl;
 
         return trueDamage;
@@ -112,7 +124,10 @@ int main() {
     
 
     while (player1.health > 0 && cpu.health > 0) {
-        cout <<"\n=============Round" << round << "=================\n" ;
+         typewrite(string("\n============= Round ")
+          + to_string(round)
+          + " =================\n", 30);
+
          cout << player1.name << " HP: " << player1.health
              << " | CPU HP: " << cpu.health << "\n";
 
