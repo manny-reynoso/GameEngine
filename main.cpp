@@ -81,7 +81,7 @@ int main() {
     player1.critMultiplier =150;
 
     Player cpu;
-    cpu.name = cpu ;
+    cpu.name = "cpu" ;
     cpu.health = 100;
     cpu.minDamage = 1;
     cpu.maxDamage = 10;
@@ -89,7 +89,7 @@ int main() {
     cpu.critChance = 15;
     player1.critMultiplier =150;
 
-    cout << "Player health: " << player1.health << endl;
+    cout << name << "health: " << player1.health << endl;
     player1.performAttack(); 
     
     
