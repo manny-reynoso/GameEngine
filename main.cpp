@@ -55,7 +55,7 @@ class Player {
         return trueDamage;
     }
 
-        int takeDamage(damageTaken){
+        int takeDamage(int damageTaken){
 
             health -= damageTaken ; //Substract the damage from targets health
 
