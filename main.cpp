@@ -87,6 +87,7 @@ class Player {
 
 int main() {
     srand(time(NULL)); // Seed the random number generator once
+    int round = 1;
 
     Player player1;
     player1.name = "Player1";
@@ -108,16 +109,28 @@ int main() {
 
     cout << player1.name << " health: " << player1.health << endl;
 
-    while (player1.health > 0 && cpu.health > 0){
-    player1.performAttack(cpu); 
-    cpu.performAttack(player1);
+    
+
+    while (player1.health > 0 && cpu.health > 0) {
+        player1.performAttack(cpu);
+        if (cpu.health <= 0) break;
+
+        cpu.performAttack(player1);
+        if (player1.health <= 0) break;
+    
+    round++ ;
     }
 
-    if (player1.health == 0){
-            cout << cpu.name <<  " killed " << player1.name << " !" <<endl; };
     
-    if (cpu.health == 0){
-            cout << player1.name <<  " killed " << cpu.name << " !" <<endl; };
+     if (player1.health == 0 && cpu.health == 0) {
+        std::cout << "Both " << player1.name << " and " << cpu.name
+                  << " have fallen!" << std::endl;
+    } else if (player1.health == 0) {
+        std::cout << cpu.name << " killed " << player1.name << "!" << std::endl;
+    } else if (cpu.health == 0) {
+        std::cout << player1.name << " killed " << cpu.name << "!" << std::endl;
+    }
+   
 
     return 0;
 }
