@@ -111,8 +111,13 @@ int main() {
     while (player1.health > 0 && cpu.health > 0){
     player1.performAttack(cpu); 
     cpu.performAttack(player1);
-    
     }
+
+    if (player1.health == 0){
+            cout << cpu.name <<  " killed " << player1.name << " !" <<endl; };
+    
+    if (cpu.health == 0){
+            cout << player1.name <<  " killed " << cpu.name << " !" <<endl; };
 
     return 0;
 }
