@@ -89,7 +89,7 @@ int main() {
     cpu.critChance = 15;
     player1.critMultiplier =150;
 
-    cout << name << "health: " << player1.health << endl;
+    cout << player.name << "health: " << player1.health << endl;
     player1.performAttack(); 
     
     
