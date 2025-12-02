@@ -12,6 +12,7 @@ class Player {
         int armour;
         int critChance;
         int critMultiplier;
+        string name;
 
 
     int armourMechanic(int armour, int finalDamage) {
