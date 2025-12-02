@@ -45,10 +45,11 @@ class Player {
         return trueDamage;
     }
 
-        int armourMechanic(int incomingDamage) {
+    int armourMechanic(int incomingDamage) {
         
-        
-        int damageTaken = static_cast<int>(incmoningDamage*((armour / 100.0)-100.0));
+        double reduction = armour / 100.0; // 8 → 0.08 = 8% reduction
+        int damageTaken = static_cast<int>(incomingDamage * (1.0 - reduction));
+
         cout << name << " has an armour rating of "  << armour << endl;
         cout << name << " got hit for " << damageTaken << endl;
 
@@ -64,22 +65,23 @@ class Player {
                 health = 0;
             }
             //output the result!
-            cout << name << " now has " << health << " health!" << endl;
 
-        };
-
-    int performAttack (Player& cpu){
-
-        int baseDamage = attackMechanic();        // get base damage
-        int finalDamage = critAttack(baseDamage); // apply crit if any
-        int damageDealt = 
+            cout << name << " took " << damageTaken << " and now has " << health << " health!" << endl;
 
 
-        cout << name << " hit for " << finalDamage<< "!" << endl;
-        return finalDamage;
-    };
+        };  
 
+    int performAttack(Player& target) {
+        int baseDamage = attackMechanic();
+        int finalDamage = critAttack(baseDamage);
 
+        std::cout << name << " hits " << target.name
+                << " for " << finalDamage << " before armour!" << std::endl;
+
+        target.takeDamage(finalDamage); // actually change target HP
+
+    return finalDamage;
+}
 
 };
 
