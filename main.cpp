@@ -94,8 +94,8 @@ class Player {
 
     return finalDamage;
 }
-    int blockAttack(int finalDamage){    // User Fights Defensevely to reduce in coming damage
-
+    int blockAttack(int damageTaken){    // User Fights Defensevely to reduce in coming damage
+        int blockedDamage = damageTaken - 2;
     }; 
 
 };
