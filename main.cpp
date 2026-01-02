@@ -94,6 +94,9 @@ class Player {
 
     return finalDamage;
 }
+    int blockAttack(int finalDamage){    // User Fights Defensevely to reduce in coming damage
+
+    }; 
 
 };
 
