@@ -96,6 +96,18 @@ class Player {
 }
     int blockAttack(int damageTaken){    // User Fights Defensevely to reduce in coming damage
         int blockedDamage = damageTaken - 2;
+
+        if (int blockedDamage > 0) {
+            int blockedDamage = 0;
+            return blockedDamage ; };
+        
+        health -= blockedDamage ; //Substract the damage from targets health.
+        
+        if(health <0){
+            health =0;
+        }
+
+        cout << name << " blocked! but took " << blockedDamage << " and now has " << health << " health!" << endl;
     }; 
 
 };
