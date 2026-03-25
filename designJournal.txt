@@ -1,0 +1,10 @@
+3-24-26
+
+  
+  **BLOCK IDEA**
+  I am thinking of making blocking roll a dice and have that be compared against the receiving attack roll. For example attack rolled a 15, block attempt rolled a 10. Attack wins and it goes through the block/ Potentially reduced damage maybe even on top of the reduced damage from armour already. 
+
+  Possibly makikng it where if the block wins it opens up the opportunity for a pary/counter event. It could then be a roll off or test of "might". Attack rolls 1 block rolls 20. Block wins, attacker left "open" Chance for counter where I'm thinking to do a random float from 0 to 1. NOt sure yet.
+
+  TECHNICALLY: make the function call a bool. If blocking is set to true, it triggers the comparison from block to attack. If block wins, instant counter. if Attack wins, attack has opportunity to attack again, or back out of the exchange.
+
