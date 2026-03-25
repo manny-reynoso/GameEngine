@@ -156,6 +156,7 @@ int main() {
         cout << "1. Attack\n";
         cout << "2. Block\n";
         cout << "3. Heal\n";
+        cout << "4. Quit\n";
         cout << "Enter choice: ";
 
         int choice ;
@@ -174,6 +175,11 @@ int main() {
         else if (choice == 3){
             cout << "\nYou chose HEAL! But it is not in game...\n";
             //player1.heal();
+        }
+
+        else if (choice ==4){
+            cout << "\n You ran away from battle...\n";\
+            break;
         }
 
         else {
