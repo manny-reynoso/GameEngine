@@ -178,7 +178,7 @@ int main() {
         }
 
         else if (choice ==4){
-            cout << "\n You ran away from battle...\n";\
+            cout << "\n You ran away from battle...\n";
             break;
         }
 
