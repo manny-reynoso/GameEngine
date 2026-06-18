@@ -90,17 +90,17 @@ public:
     return finalDamage;
   }
 
-  int blockAttack(int damageTaken) {
-    int blockedDamage = damageTaken - 2;
+  int blockAttack(bool isBlocking, int incomingDamage) {
 
-    if (blockedDamage < 0) {
-      blockedDamage = 0;
-    }
+    int blockedDamage;
 
-    health -= blockedDamage;
+    bool isBlocking = true;
 
-    if (health < 0) {
-      health = 0;
+    if (isBlocking = true) {
+      incomingDamage = 0;
+
+      return isBlocking;
+      return incomingDamage;
     }
 
     cout << name << " blocked! but took " << blockedDamage << " and now has "
@@ -161,8 +161,9 @@ int main() {
     }
 
     else if (choice == 2) {
-      cout << "\nYou chose BLOCK! But it is not in game...\n";
+      cout << "\nYou chose BLOCK!\n";
       // player1.isBlocking = true;   // Blocks the next hit
+
     }
 
     else if (choice == 3) {
