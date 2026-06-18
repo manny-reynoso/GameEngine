@@ -22,7 +22,7 @@ public:
   int armour;
   int critChance;
   int critMultiplier;
-  bool isBlocking;
+  bool isBlocking = false;
   string name;
 
   int attackMechanic() {
@@ -67,15 +67,25 @@ public:
   void takeDamage(int incomingDamage) {
 
     int damageTaken = armourMechanic(incomingDamage);
-    health -= damageTaken; // Substract the damage from targets health
+    if (isBlocking == true) {
+
+      damageTaken = 0;
+      isBlocking = false;
+      cout << name << "Blocked and took zero damage!!";
+
+    }
+
+    else {
+      health -= damageTaken; // Substract the damage from targets health
+      // output the result!
+
+      cout << name << " took " << damageTaken << " and now has " << health
+           << " health!" << endl;
+    }
 
     if (health < 0) {
       health = 0;
     }
-    // output the result!
-
-    cout << name << " took " << damageTaken << " and now has " << health
-         << " health!" << endl;
   };
 
   int performAttack(Player &target) {
@@ -90,24 +100,11 @@ public:
     return finalDamage;
   }
 
-  int blockMechanic(bool isBlocking, int incomingDamage) {
-
-    int blockedDamage;
+  int blockMechanic() {
 
     isBlocking = true;
 
-    if (true) {
-      incomingDamage = 0;
-      isBlocking = false;
-
-      return isBlocking;
-      return incomingDamage;
-    }
-
-    cout << name << " blocked the attack!" << blockedDamage << " and now has "
-         << health << " health!" << endl;
-
-    return blockedDamage;
+    return isBlocking;
   }
 };
 
@@ -163,6 +160,7 @@ int main() {
 
     else if (choice == 2) {
       cout << "\nYou chose BLOCK!\n";
+      player1.blockMechanic();
       // player1.isBlocking = true;   // Blocks the next hit
 
     }
