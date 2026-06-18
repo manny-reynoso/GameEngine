@@ -22,7 +22,7 @@ public:
   int armour;
   int critChance;
   int critMultiplier;
-  bool isBlocking = false;
+  bool isBlocking;
   string name;
 
   int attackMechanic() {
@@ -90,20 +90,21 @@ public:
     return finalDamage;
   }
 
-  int blockAttack(bool isBlocking, int incomingDamage) {
+  int blockMechanic(bool isBlocking, int incomingDamage) {
 
     int blockedDamage;
 
-    bool isBlocking = true;
+    isBlocking = true;
 
-    if (isBlocking = true) {
+    if (true) {
       incomingDamage = 0;
+      isBlocking = false;
 
       return isBlocking;
       return incomingDamage;
     }
 
-    cout << name << " blocked! but took " << blockedDamage << " and now has "
+    cout << name << " blocked the attack!" << blockedDamage << " and now has "
          << health << " health!" << endl;
 
     return blockedDamage;
