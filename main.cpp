@@ -110,7 +110,7 @@ public:
 
   int heal(int health, int healthPotion) {
 
-    if (healthPotion < 0) {
+    if (healthPotion > 0) {
 
       health += 10;
 
