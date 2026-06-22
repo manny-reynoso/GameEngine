@@ -17,6 +17,7 @@ void typewrite(const std::string &text, int delayMs) {
 class Player {
 public:
   int health;
+  int healthPotion;
   int maxDamage;
   int minDamage;
   int armour;
@@ -106,6 +107,25 @@ public:
 
     return isBlocking;
   }
+
+  int heal(int health, int healthPotion) {
+
+    if (healthPotion < 0) {
+
+      health += 10;
+
+      cout << name << "Used a health Potion! " << "and now has " << health
+           << endl;
+
+      return healthPotion;
+    }
+
+    else {
+      cout << name << "Doesn't have any potions left!" << endl;
+    };
+
+    return health;
+  };
 };
 
 int main() {
@@ -120,6 +140,7 @@ int main() {
   player1.armour = 8;
   player1.critChance = 15;
   player1.critMultiplier = 150;
+  player1.healthPotion = 3;
 
   Player cpu;
   cpu.name = "cpu";
@@ -129,6 +150,7 @@ int main() {
   cpu.armour = 8;
   cpu.critChance = 15;
   cpu.critMultiplier = 150;
+  cpu.healthPotion = 3;
 
   cout << player1.name << " health: " << player1.health << endl;
 
@@ -167,7 +189,7 @@ int main() {
 
     else if (choice == 3) {
       cout << "\nYou chose HEAL! But it is not in game...\n";
-      // player1.heal();
+      player1.heal(player1.health, player1.healthPotion);
     }
 
     else if (choice == 4) {
@@ -200,5 +222,3 @@ int main() {
 
   return 0;
 }
-
-// Test, checking git status
