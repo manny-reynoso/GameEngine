@@ -17,6 +17,7 @@ void typewrite(const std::string &text, int delayMs) {
 class Player {
 public:
   int health;
+  int healthPotion = 3;
   int maxDamage;
   int minDamage;
   int armour;
@@ -106,6 +107,8 @@ public:
 
     return isBlocking;
   }
+
+  heal(health) {}
 };
 
 int main() {
