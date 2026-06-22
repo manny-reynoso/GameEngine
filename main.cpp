@@ -17,7 +17,7 @@ void typewrite(const std::string &text, int delayMs) {
 class Player {
 public:
   int health;
-  int healthPotion = 3;
+  int healthPotion;
   int maxDamage;
   int minDamage;
   int armour;
@@ -108,7 +108,9 @@ public:
     return isBlocking;
   }
 
-  heal(health) {}
+  heal(health) {
+
+  };
 };
 
 int main() {
@@ -123,6 +125,7 @@ int main() {
   player1.armour = 8;
   player1.critChance = 15;
   player1.critMultiplier = 150;
+  player1.healthPotion = 3;
 
   Player cpu;
   cpu.name = "cpu";
@@ -132,6 +135,7 @@ int main() {
   cpu.armour = 8;
   cpu.critChance = 15;
   cpu.critMultiplier = 150;
+  cpu.healthPotion = 3;
 
   cout << player1.name << " health: " << player1.health << endl;
 
