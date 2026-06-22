@@ -108,8 +108,23 @@ public:
     return isBlocking;
   }
 
-  heal(health) {
+  int heal(int health, int healthPotion) {
 
+    if (healthPotion < 0) {
+
+      health += 10;
+
+      cout << name << "Used a health Potion! " << "and now has " << health
+           << endl;
+
+      return healthPotion;
+    }
+
+    else {
+      cout << name << "Doesn't have any potions left!" << endl;
+    };
+
+    return health;
   };
 };
 
